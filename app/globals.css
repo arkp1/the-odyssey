@@ -1,26 +1,88 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Deep, mystical sea/night shades */
+  --color-aegean-950: #020609; /* Darkest abyss */
+  --color-aegean-900: #05111A; /* Deep ocean night */
+  --color-aegean-800: #0F2335; /* Midnight waves */
+  --color-aegean-700: #1A3C54; /* Deep water */
+  --color-aegean-600: #2B5A75; /* Open sea */
+  
+  /* Wind-worn bronze and gold */
+  --color-bronze-500: #C68E4D; /* Polished bronze */
+  --color-bronze-400: #D4A86A; /* Sunlit bronze */
+  --color-bronze-600: #8A5A2B; /* Aged bronze */
+  --color-gold-400: #F0C05A; /* Divine glow */
+  
+  /* Parchment and glowing ink */
+  --color-parchment-100: #F2E6D8; /* Fresh parchment */
+  --color-parchment-200: #E6D2B5; /* Aged parchment */
+  --color-parchment-300: #C9B292; /* Worn edges */
+  
+  /* Special effects */
+  --color-ink-glow: #A8D8F0; /* Mystical ink glow */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-cinzel: var(--font-cinzel);
+  --font-spectral: var(--font-spectral);
+  
+  --animate-float: float 8s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 4s ease-in-out infinite;
+  --animate-fade-in: fade-in 1s ease-out forwards;
+  --animate-shimmer: shimmer 3s linear infinite;
+  --animate-ink-flow: ink-flow 2s ease-out forwards;
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.7; text-shadow: 0 0 10px rgba(212, 168, 106, 0.3); }
+    50% { opacity: 1; text-shadow: 0 0 20px rgba(212, 168, 106, 0.6); }
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  @keyframes ink-flow {
+    from { stroke-dashoffset: 100; opacity: 0; }
+    to { stroke-dashoffset: 0; opacity: 1; }
   }
 }
 
+:root {
+  --background: var(--color-aegean-950);
+  --foreground: var(--color-parchment-100);
+}
+
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-spectral);
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-aegean-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-bronze-600);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-bronze-500);
 }
