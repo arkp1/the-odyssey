@@ -78,7 +78,7 @@ export function GodCard({ name, title, description, facts, symbol, alignment = "
               <Scroll className="w-5 h-5" />
               Known Legends
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-4 text-left">
               {facts.map((fact, i) => (
                 <li key={i} className="flex gap-4 text-base text-parchment-300/80 group hover:text-parchment-100 transition-colors">
                   <span className="text-bronze-600 group-hover:text-bronze-400 transition-colors">✦</span>

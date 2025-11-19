@@ -23,7 +23,7 @@ export async function GET(request: Request) {
     
     // Configure safety settings to allow mythological themes
     const model = genAI.getGenerativeModel({ 
-      model: "gemini-2.0-flash",
+      model: "gemini-2.0-flash-lite",
     });
 
     const prompt = `${SYSTEM_PROMPT}\n\nTell me an obscure fact about ${god}.`;

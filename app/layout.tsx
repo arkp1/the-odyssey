@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cinzel, Spectral } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
@@ -35,6 +36,7 @@ export default function RootLayout({
           "antialiased bg-aegean-900 text-parchment-100 min-h-screen font-serif"
         )}
       >
+        <ScrollProgress />
         {children}
       </body>
     </html>
