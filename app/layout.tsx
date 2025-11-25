@@ -3,6 +3,7 @@ import { Cinzel, Spectral } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { LoadingScreen } from "@/components/ui/LoadingScreen";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
@@ -18,8 +19,9 @@ const spectral = Spectral({
 });
 
 export const metadata: Metadata = {
-  title: "The Odyssey | A Mythic Voyage",
-  description: "An immersive scroll-driven journey through the epic of The Odyssey.",
+  title: "The Odyssey",
+  description:
+    "An immersive scroll-driven journey through the epic of The Odyssey.",
 };
 
 export default function RootLayout({
@@ -37,6 +39,7 @@ export default function RootLayout({
         )}
       >
         <ScrollProgress />
+        <LoadingScreen />
         {children}
       </body>
     </html>

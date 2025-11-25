@@ -14,7 +14,14 @@ interface GodCardProps {
   alignment?: "left" | "right";
 }
 
-export function GodCard({ name, title, description, facts, symbol, alignment = "left" }: GodCardProps) {
+export function GodCard({
+  name,
+  title,
+  description,
+  facts,
+  symbol,
+  alignment = "left",
+}: GodCardProps) {
   const [secretFact, setSecretFact] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -34,54 +41,76 @@ export function GodCard({ name, title, description, facts, symbol, alignment = "
   };
 
   return (
-    <div className={cn(
-      "flex flex-col gap-8 md:gap-16 max-w-5xl mx-auto px-4 md:px-0",
-      alignment === "right" ? "md:text-right items-end" : "md:text-left items-start"
-    )}>
-      <motion.div 
+    <div
+      className={cn(
+        "flex flex-col gap-8 md:gap-16 max-w-5xl mx-auto px-6 md:px-0 items-center md:items-start text-center md:text-left",
+        alignment === "right" ? "md:text-right md:items-end" : ""
+      )}
+    >
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 1, ease: "easeOut" }}
         className="space-y-4 relative"
       >
-        <div className={cn(
-          "absolute -top-20 -z-10 opacity-10 text-[10rem] md:text-[12rem] font-serif text-bronze-500 select-none pointer-events-none",
-          alignment === "right" ? "right-0" : "left-0"
-        )}>
+        <div
+          className={cn(
+            "absolute -top-10 md:-top-20 -z-10 opacity-10 text-[8rem] md:text-[12rem] font-serif text-bronze-500 select-none pointer-events-none",
+            alignment === "right" ? "right-0" : "left-0",
+            "left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0", // Center on mobile
+            alignment === "right" ? "md:right-0 md:left-auto" : "md:left-0"
+          )}
+        >
           {name[0]}
         </div>
-        <span className="text-bronze-400 tracking-[0.3em] text-sm uppercase font-semibold flex items-center gap-3">
-          {alignment === "right" && <div className="h-[1px] w-12 bg-bronze-600/50" />}
+        <span className="text-bronze-400 tracking-[0.3em] text-sm uppercase font-semibold flex items-center justify-center md:justify-start gap-3">
+          {alignment === "right" && (
+            <div className="hidden md:block h-[1px] w-12 bg-bronze-600/50" />
+          )}
           {title}
-          {alignment === "left" && <div className="h-[1px] w-12 bg-bronze-600/50" />}
+          {alignment === "left" && (
+            <div className="hidden md:block h-[1px] w-12 bg-bronze-600/50" />
+          )}
         </span>
-        <h2 className="text-6xl md:text-8xl font-serif text-parchment-100 drop-shadow-lg">{name}</h2>
+        <h2 className="text-6xl md:text-8xl font-serif text-parchment-100 drop-shadow-lg">
+          {name}
+        </h2>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1, delay: 0.2 }}
-        className="grid md:grid-cols-2 gap-12 items-start w-full"
+        className="grid md:grid-cols-2 gap-12 items-center w-full"
       >
-        <div className={cn("space-y-8 relative z-10", alignment === "right" && "order-2")}>
+        <div
+          className={cn(
+            "space-y-8 relative z-10 order-2 md:order-none",
+            alignment === "right" && "md:order-2"
+          )}
+        >
           <div className="prose prose-invert prose-lg">
             <p className="text-lg md:text-xl leading-relaxed text-parchment-200/90 font-light">
               {description}
             </p>
           </div>
-          
+
           <div className="space-y-6 border-t border-aegean-700/50 pt-8">
-            <h3 className="text-bronze-400 font-serif text-xl flex items-center gap-2">
+            <h3 className="text-bronze-400 font-serif text-xl flex items-center justify-center md:justify-start gap-2">
               <Scroll className="w-5 h-5" />
               Known Legends
             </h3>
-            <ul className="space-y-4 text-left">
+            <ul className="space-y-4 text-left inline-block md:block">
               {facts.map((fact, i) => (
-                <li key={i} className="flex gap-4 text-base text-parchment-300/80 group hover:text-parchment-100 transition-colors">
-                  <span className="text-bronze-600 group-hover:text-bronze-400 transition-colors">✦</span>
+                <li
+                  key={i}
+                  className="flex gap-4 text-base text-parchment-300/80 group hover:text-parchment-100 transition-colors"
+                >
+                  <span className="text-bronze-600 group-hover:text-bronze-400 transition-colors">
+                    ✦
+                  </span>
                   {fact}
                 </li>
               ))}
@@ -104,7 +133,9 @@ export function GodCard({ name, title, description, facts, symbol, alignment = "
                   )}
                 </div>
                 <span className="uppercase tracking-widest text-sm font-semibold">
-                  {isLoading ? "Consulting the Oracle..." : "Reveal Mythic Secret"}
+                  {isLoading
+                    ? "Consulting the Oracle..."
+                    : "Reveal Mythic Secret"}
                 </span>
               </button>
             ) : (
@@ -114,7 +145,9 @@ export function GodCard({ name, title, description, facts, symbol, alignment = "
                 className="space-y-4"
               >
                 <div className="space-y-2">
-                  <h4 className="text-bronze-400 text-xs uppercase tracking-widest mb-2">Oracle's Whisper</h4>
+                  <h4 className="text-bronze-400 text-xs uppercase tracking-widest mb-2">
+                    Oracle's Whisper
+                  </h4>
                   <p className="text-parchment-100 italic font-serif text-lg leading-relaxed">
                     "{secretFact}"
                   </p>
@@ -136,17 +169,19 @@ export function GodCard({ name, title, description, facts, symbol, alignment = "
           </div>
         </div>
 
-        <div className={cn(
-          "relative aspect-square w-full max-w-md mx-auto flex items-center justify-center",
-          alignment === "right" && "order-1"
-        )}>
+        <div
+          className={cn(
+            "relative aspect-square w-full max-w-[300px] md:max-w-md mx-auto flex items-center justify-center order-1 md:order-none",
+            alignment === "right" && "md:order-1"
+          )}
+        >
           {/* Cinematic Circle Elements */}
           <div className="absolute inset-0 border border-aegean-600/20 rounded-full animate-[spin_60s_linear_infinite]" />
           <div className="absolute inset-8 border border-bronze-500/10 rounded-full animate-[spin_40s_linear_infinite_reverse]" />
           <div className="absolute inset-0 bg-gradient-to-tr from-bronze-900/20 to-transparent rounded-full blur-2xl" />
-          
+
           {/* Symbol */}
-          <motion.div 
+          <motion.div
             whileHover={{ scale: 1.02, rotate: 2, filter: "brightness(1.2)" }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
             className="relative z-10 text-center cursor-pointer"
@@ -155,7 +190,7 @@ export function GodCard({ name, title, description, facts, symbol, alignment = "
               {symbol}
             </div>
           </motion.div>
-          
+
           {/* Glowing Center */}
           <div className="absolute w-40 h-40 bg-bronze-500/5 rounded-full blur-3xl animate-pulse-glow" />
         </div>

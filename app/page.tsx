@@ -20,7 +20,9 @@ export default function Home() {
             A Mythic Voyage
           </p>
           <div className="mt-20 animate-pulse-glow">
-            <span className="text-parchment-300 text-sm tracking-widest">SCROLL TO BEGIN</span>
+            <span className="text-parchment-300 text-sm tracking-widest">
+              SCROLL TO BEGIN
+            </span>
             <div className="w-[1px] h-16 bg-gradient-to-b from-parchment-300 to-transparent mx-auto mt-4" />
           </div>
         </Section>

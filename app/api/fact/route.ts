@@ -21,16 +21,15 @@ export async function GET(request: Request) {
   try {
     const genAI = new GoogleGenerativeAI(apiKey);
     
-    // Configure safety settings to allow mythological themes
     const model = genAI.getGenerativeModel({ 
       model: "gemini-2.0-flash-lite",
     });
 
     const prompt = `${SYSTEM_PROMPT}\n\nTell me an obscure fact about ${god}.`;
 
-    // Generate content
+    // generate content
     const result = await model.generateContent(prompt);
-    const response = result.response; // removed 'await' as it is not needed here
+    const response = result.response; 
     const text = response.text(); 
     
     return NextResponse.json({ fact: text.trim() });
