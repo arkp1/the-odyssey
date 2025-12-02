@@ -19,7 +19,6 @@ export function ParallaxBackground() {
       ref={ref}
       className="fixed inset-0 z-0 overflow-hidden pointer-events-none"
     >
-      {/* Deep Aegean Gradient Base */}
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -39,11 +38,8 @@ export function ParallaxBackground() {
 
       {/* Stars / Constellations */}
       <motion.div style={{ y: starsY }} className="absolute inset-0 opacity-60">
-        {/* Fixed major stars */}
         <div className="absolute top-10 left-10 w-1 h-1 bg-parchment-100 rounded-full shadow-[0_0_4px_#fff] animate-pulse" />
         <div className="absolute top-40 right-20 w-1.5 h-1.5 bg-parchment-100 rounded-full shadow-[0_0_6px_#fff] animate-pulse" />
-
-        {/* Random twinkling stars */}
         {Array.from({ length: 30 }).map((_, i) => (
           <motion.div
             key={i}
