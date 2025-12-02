@@ -62,7 +62,6 @@ export function ParallaxBackground() {
         ))}
       </motion.div>
 
-      {/* Distant Clouds / Fog */}
       <motion.div
         style={{ y: cloudsY }}
         className="absolute inset-0 opacity-30 mix-blend-soft-light"
