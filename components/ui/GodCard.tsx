@@ -58,7 +58,7 @@ export function GodCard({
           className={cn(
             "absolute -top-10 md:-top-20 -z-10 opacity-10 text-[8rem] md:text-[12rem] font-serif text-bronze-500 select-none pointer-events-none",
             alignment === "right" ? "right-0" : "left-0",
-            "left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0", // Center on mobile
+            "left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0", 
             alignment === "right" ? "md:right-0 md:left-auto" : "md:left-0"
           )}
         >
@@ -123,7 +123,7 @@ export function GodCard({
               <button
                 onClick={fetchFact}
                 disabled={isLoading}
-                className="flex items-center gap-3 text-bronze-400 hover:text-parchment-100 transition-all group w-full"
+                className="flex items-center gap-3 text-bronze-400 hover:text-parchment-100 transition-all group w-full cursor-pointer"
               >
                 <div className="p-2 rounded-full bg-bronze-900/20 group-hover:bg-bronze-500/20 transition-colors">
                   {isLoading ? (
