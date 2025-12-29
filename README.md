@@ -34,7 +34,7 @@ Clone the repository
 
 Install dependencies
 
-Run the dev serve
+Run the dev server
 
 ## Roadmap
 
