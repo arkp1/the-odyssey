@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Overview
 
-## Getting Started
+This site is built as a long vertical narrative. Each scroll section acts as a “chapter” in Odysseus’ journey, introducing gods like Athena, Poseidon, Hermes, and others, each with lore, symbols, and lesser-known facts. The focus is immersion: parallax waves, subtle animations, and an Odyssey-themed color palette (Aegean blues, bronze, parchment tones).
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Single-page scroll experience with smooth transitions
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Odyssey-inspired theme: ancient, poetic, atmospheric
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Sections for major gods & mythic figures
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Parallax effects (waves, clouds, constellations)
 
-## Learn More
+Light ambient animations to enhance immersion
 
-To learn more about Next.js, take a look at the following resources:
+Responsive design for all screen sizes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Minimal navigation indicator marking each chapter
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Tech Stack
 
-## Deploy on Vercel
+- Next.js
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- tailwind css
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- typescript
+
+- framer
+  
+ ## Getting Started
+
+Clone the repository
+
+Install dependencies
+
+Run the dev server
+
+## Roadmap
+
+Add more “chapters” from the Odyssey
+
+Include interactive myth timelines
+
+Add voice-over snippets or ambient audio toggle
+
+Expand deity database with symbols, epithets, and relationships
